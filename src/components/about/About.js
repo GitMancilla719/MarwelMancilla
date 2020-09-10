@@ -1,6 +1,5 @@
 import React from 'react'
 import { Typography, Box} from '@material-ui/core'
-import { Fade } from 'react-reveal'
 import AboutStyle from './AboutStyle'
 import reactLogo from '../../assets/1.png'
 import muiLogo from '../../assets/2.png'
@@ -23,13 +22,11 @@ const About = () => {
         {tech : htmlLogo, title : 'HTML'},
         {tech : psLogo, title : 'Photoshop'}
     ]
-    const scrollNum = document.documentElement.scrollTop
 
     const classes = AboutStyle()
     return (
         <>
                 <Box className={classes.container}>
-                <Fade left cascade when={ scrollNum>600? true : false}>
                         <Typography className={classes.titles} variant='h4'>About this Guy</Typography>
                         <Typography className={classes.desc}>
                                 I am a fresh graduate with a degree in BS Information Technology with a great passion for web development and technology.
@@ -52,7 +49,6 @@ const About = () => {
                             )   
                         }
                         </Box>
-                </Fade>
                 </Box>
         </>
     )

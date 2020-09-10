@@ -1,36 +1,42 @@
 import React,{ useState, useEffect } from 'react'
-import { Tabs, Tab, Box } from '@material-ui/core'
+import { Tabs, Tab, Box, Button } from '@material-ui/core'
 import LandingPage from './components/landing/LandingPage'
 import About from './components/about/About'
 import Works from './components/works/Works'
+import Contact from './components/Contact'
+import MobileMenu from './MobileMenu'
 
+import { Fade } from 'react-reveal'
 import Particles from 'react-particles-js'
-
 import AppStyle from './AppStyle'
 import openTag from './assets/openTag.png'
 import closeTag from './assets/closeTag.png'
+import portLogo from './assets/portLogo.png'
+
 
 function App() {
 
-  const [value, setValue] = useState(0)
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue) 
-  }
+  const [disp, setDisp] = useState(false)
   useEffect( ()=>{
     window.onscroll = () => scrollNum()
   },[])
 
   const scrollNum = () => {
-    if(document.documentElement.scrollTop > 900){
-      setValue(2)
-    }
-    else if(document.documentElement.scrollTop > 600){
-      setValue(1)
-    }
-    else{
-      setValue(0)
-    }
+    document.documentElement.scrollTop > 1900?  
+    document.getElementById("btnIDContact").classList.add(classes.btnScroll)
+    : document.getElementById("btnIDContact").classList.remove(classes.btnScroll)
+
+    document.documentElement.scrollTop > 1200 && document.documentElement.scrollTop < 1900?  
+    document.getElementById("btnIDWorks").classList.add(classes.btnScroll)
+    : document.getElementById("btnIDWorks").classList.remove(classes.btnScroll)
+
+    document.documentElement.scrollTop > 650 && document.documentElement.scrollTop < 1200?  
+    document.getElementById("btnIDAbout").classList.add(classes.btnScroll)
+    : document.getElementById("btnIDAbout").classList.remove(classes.btnScroll)
+
+    document.documentElement.scrollTop >= 0 && document.documentElement.scrollTop < 650?  
+    document.getElementById("btnIDHome").classList.add(classes.btnScroll)
+    : document.getElementById("btnIDHome").classList.remove(classes.btnScroll)
   }
 
   const myParams = {
@@ -82,34 +88,104 @@ function App() {
     },
 }
   
-  const classes = AppStyle()
+const classes = AppStyle()
+
+const ham = () => {
+  setDisp(!disp)
+  document.getElementById("bar1").classList.toggle(classes.changeBar)
+  document.getElementById("bar2").classList.toggle(classes.changeBar) 
+  document.getElementById("bar3").classList.toggle(classes.changeBar)  
+}
+
   return (
     <>   
       
-        <Particles
-          style={{position : 'fixed', width : '100%', height : '100%', zIndex : '-1'}}
-          params={myParams} />
+        <Particles style={{position : 'fixed', width : '100%', height : '100%', zIndex : '-1'}} params={myParams} />
 
-        <Box className={classes.tabsStyle} display='flex' justifyContent='flex-end'>
-          <Tabs  value={value} onChange={handleChange} TabIndicatorProps={{style: {background:'#FFF123'}}}>
-            <Tab label="Home" {...value} onClick={ ()=> document.getElementById("home").scrollIntoView()}/>
-            <Tab label="About" {...value} onClick={ ()=> document.getElementById("about").scrollIntoView()}/>
-            <Tab label="Works" {...value} onClick={ ()=> document.getElementById("works").scrollIntoView()}/>
-          </Tabs> 
+        <Box className={classes.tabsStyle} display='flex' justifyContent='space-between'>
+          <img src={portLogo} alt="portLogo" style={{margin : '0.5em 0 0 1em'}} width='40em' height='100%'/>
+          <Box display='flex' flexDirection='row'>
+              <Button id='btnIDHome' className={classes.btn} onClick={ ()=> document.getElementById("home").scrollIntoView() }>Home</Button>
+              <Button id='btnIDAbout' className={classes.btn} onClick={ ()=> document.getElementById("about").scrollIntoView() }>About</Button>
+              <Button id='btnIDWorks' className={classes.btn} onClick={ ()=> document.getElementById("works").scrollIntoView() }>Works</Button>
+              <Button id='btnIDContact' className={classes.btn} onClick={ ()=> document.getElementById("contact").scrollIntoView() }>Contact</Button>
+              
+              <Button className={classes.mobileScreen} onClick={()=>setDisp(!disp)}>
+                <Box display='flex' flexDirection='column'>
+                  <Box id='bar1' className={classes.bars}/>
+                  <Box id='bar2' className={classes.bars}/>
+                  <Box id='bar3' className={classes.bars}/>
+                </Box>
+              </Button>
+          </Box>
+
+          
         </Box>
 
+        {disp?
+        <Box className={classes.mobileBox} display='flex' flexDirection='column' justifyContent='center' alignItems='flex-end'>
+          <Fade right cascade>
 
+              <Button id='btnIDHome' className={classes.mobileMenu}
+                onClick={ ()=> {
+                  document.getElementById("home").scrollIntoView()
+                  setDisp(!disp)}}>Home
+              </Button>
+
+              <Button id='btnIDAbout' className={classes.mobileMenu}
+                onClick={ ()=> {
+                  document.getElementById("about").scrollIntoView()
+                  setDisp(!disp)}}>About
+              </Button>
+
+              <Button id='btnIDWorks' className={classes.mobileMenu}
+                onClick={ ()=> {
+                  document.getElementById("works").scrollIntoView()
+                  setDisp(!disp)}}>Works
+              </Button>
+
+              <Button id='btnIDContact' className={classes.mobileMenu}
+                onClick={ ()=> {
+                  document.getElementById("contact").scrollIntoView()
+                  setDisp(!disp)}}>Contact
+              </Button>
+
+          </Fade>
+        </Box>
+        :null
+        }
+
+
+        
+        {/* <Box>
+          <MobileMenu/>
+        </Box> */}
+        
         <Box id='home'>
-          <LandingPage/>
+          <Fade left>
+            <LandingPage/>
+          </Fade>
         </Box>
 
         <Box id='about'>
-          <About/>
+          <Fade left>
+            <About/>
+          </Fade>
         </Box>
 
         <Box id='works'>
-          <Works/>
-        </Box> 
+          <Fade left>
+            <Works/>
+          </Fade>
+        </Box>
+
+        <Box id='contact'>
+          <Fade left>
+            <Contact/>
+          </Fade>
+        </Box>
+
+        
 
     </>
   )

@@ -52,9 +52,7 @@ const WorksStyle = makeStyles( theme => ({
         padding : '0.7em'
     },
     bGroup : {
-        //backgroundColor : '#FFF123',
         marginTop : '0.5em',
-        marginLeft : '7em'
     },
     buttonG : {
         color : '#FFFFFF'
