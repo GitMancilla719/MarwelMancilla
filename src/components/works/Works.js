@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Box, Card, Button, ButtonGroup } from '@material-ui/core'
+import { Typography, Box, Card, Button, ButtonGroup, Link } from '@material-ui/core'
 import WorksStyle from './WorksStyle'
 import MMPORT from '../../assets/MMPORT.jpeg'
 //import viewButton from '../../assets/viewbutton.png'
@@ -26,7 +26,11 @@ const Works = () => {
                                 <Typography variant='body1'>ReactJS, Material UI</Typography>
                                 <Box component={ButtonGroup} className={classes.bGroup} variant="text">
                                     {/* <Button className={classes.buttonG}><img src={viewButton} alt="viewButton" width='30em'/> View</Button> */}
-                                    <Button className={classes.buttonG} ><img src={gitButton} alt="gitButton" width='35em'/></Button>
+                                    <Button className={classes.buttonG}>
+                                        <Link href="https://github.com/GitMancilla719/MMportfolio#" target="_blank" rel="noopener" >
+                                            <img src={gitButton} alt="gitButton" width='35em'/>
+                                        </Link>
+                                    </Button>
                                 </Box>
                             </Box>
                         </Box>
