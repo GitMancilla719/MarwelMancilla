@@ -2,7 +2,7 @@ import React from 'react'
 import { Typography, Box, Card, Button, ButtonGroup } from '@material-ui/core'
 import WorksStyle from './WorksStyle'
 import MMPORT from '../../assets/MMPORT.jpeg'
-import viewButton from '../../assets/viewbutton.png'
+//import viewButton from '../../assets/viewbutton.png'
 import gitButton from '../../assets/gitbutton.png'
 
 const Works = () => {
@@ -31,7 +31,7 @@ const Works = () => {
                             </Box>
                         </Box>
 
-                        <Box component={Card} elevation={2} className={classes.proj}>
+                        {/* <Box component={Card} elevation={2} className={classes.proj}>
                             <Box className={classes.projImg}>
                                 <img src="" alt=""/>
                             </Box>
@@ -43,7 +43,7 @@ const Works = () => {
                                     <Button className={classes.buttonG}><img src={gitButton} alt="gitButton" width='35em'/></Button>
                                 </Box>
                             </Box>
-                        </Box>
+                        </Box> */}
 
                     </Box>
                 </Box>

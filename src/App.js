@@ -1,10 +1,9 @@
 import React,{ useState, useEffect } from 'react'
-import { Tabs, Tab, Box, Button } from '@material-ui/core'
+import { Box, Button } from '@material-ui/core'
 import LandingPage from './components/landing/LandingPage'
 import About from './components/about/About'
 import Works from './components/works/Works'
 import Contact from './components/Contact'
-import MobileMenu from './MobileMenu'
 
 import { Fade } from 'react-reveal'
 import Particles from 'react-particles-js'
@@ -17,28 +16,12 @@ import portLogo from './assets/portLogo.png'
 function App() {
 
   const [disp, setDisp] = useState(false)
+
   useEffect( ()=>{
     window.onscroll = () => scrollNum()
-  },[])
+  })
 
-  const scrollNum = () => {
-    document.documentElement.scrollTop > 1900?  
-    document.getElementById("btnIDContact").classList.add(classes.btnScroll)
-    : document.getElementById("btnIDContact").classList.remove(classes.btnScroll)
-
-    document.documentElement.scrollTop > 1200 && document.documentElement.scrollTop < 1900?  
-    document.getElementById("btnIDWorks").classList.add(classes.btnScroll)
-    : document.getElementById("btnIDWorks").classList.remove(classes.btnScroll)
-
-    document.documentElement.scrollTop > 650 && document.documentElement.scrollTop < 1200?  
-    document.getElementById("btnIDAbout").classList.add(classes.btnScroll)
-    : document.getElementById("btnIDAbout").classList.remove(classes.btnScroll)
-
-    document.documentElement.scrollTop >= 0 && document.documentElement.scrollTop < 650?  
-    document.getElementById("btnIDHome").classList.add(classes.btnScroll)
-    : document.getElementById("btnIDHome").classList.remove(classes.btnScroll)
-  }
-
+  
   const myParams = {
     "particles": {
         "number": {
@@ -87,15 +70,26 @@ function App() {
       }
     },
 }
+
+const scrollNum = () => {
+  document.documentElement.scrollTop > 1900?  
+  document.getElementById("btnIDContact").classList.add(classes.btnScroll)
+  : document.getElementById("btnIDContact").classList.remove(classes.btnScroll)
+
+  document.documentElement.scrollTop > 1200 && document.documentElement.scrollTop < 1900?  
+  document.getElementById("btnIDWorks").classList.add(classes.btnScroll)
+  : document.getElementById("btnIDWorks").classList.remove(classes.btnScroll)
+
+  document.documentElement.scrollTop > 650 && document.documentElement.scrollTop < 1200?  
+  document.getElementById("btnIDAbout").classList.add(classes.btnScroll)
+  : document.getElementById("btnIDAbout").classList.remove(classes.btnScroll)
+
+  document.documentElement.scrollTop >= 0 && document.documentElement.scrollTop < 650?  
+  document.getElementById("btnIDHome").classList.add(classes.btnScroll)
+  : document.getElementById("btnIDHome").classList.remove(classes.btnScroll)
+}
   
 const classes = AppStyle()
-
-const ham = () => {
-  setDisp(!disp)
-  document.getElementById("bar1").classList.toggle(classes.changeBar)
-  document.getElementById("bar2").classList.toggle(classes.changeBar) 
-  document.getElementById("bar3").classList.toggle(classes.changeBar)  
-}
 
   return (
     <>   
@@ -154,12 +148,6 @@ const ham = () => {
         </Box>
         :null
         }
-
-
-        
-        {/* <Box>
-          <MobileMenu/>
-        </Box> */}
         
         <Box id='home'>
           <Fade left>
