@@ -27,7 +27,7 @@ const Works = () => {
                                 <Box component={ButtonGroup} className={classes.bGroup} variant="text">
                                     {/* <Button className={classes.buttonG}><img src={viewButton} alt="viewButton" width='30em'/> View</Button> */}
                                     <Button className={classes.buttonG}>
-                                        <Link href="https://github.com/GitMancilla719/MMportfolio#" target="_blank" rel="noopener" >
+                                        <Link href="https://github.com/GitMancilla719/MarwelMancilla" target="_blank" rel="noopener" >
                                             <img src={gitButton} alt="gitButton" width='35em'/>
                                         </Link>
                                     </Button>
