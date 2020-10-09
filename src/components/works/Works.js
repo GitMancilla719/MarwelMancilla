@@ -1,8 +1,10 @@
 import React from 'react'
 import { Typography, Box, Card, Button, ButtonGroup, Link } from '@material-ui/core'
 import WorksStyle from './WorksStyle'
+
 import MMPORT from '../../assets/MMPORT.jpeg'
-//import viewButton from '../../assets/viewbutton.png'
+import JOBSLogo from '../../assets/JOBSLogo.png'
+import viewButton from '../../assets/viewbutton.png'
 import gitButton from '../../assets/gitbutton.png'
 
 const Works = () => {
@@ -23,9 +25,8 @@ const Works = () => {
                             </Box>
                             <Box className={classes.projDesc}>
                                 <Typography variant='h6'>M.Mancilla | Portfolio</Typography>
-                                <Typography variant='body1'>ReactJS, Material UI</Typography>
+                                <Typography variant='body2'>ReactJS, Material UI</Typography>
                                 <Box component={ButtonGroup} className={classes.bGroup} variant="text">
-                                    {/* <Button className={classes.buttonG}><img src={viewButton} alt="viewButton" width='30em'/> View</Button> */}
                                     <Button className={classes.buttonG}>
                                         <Link href="https://github.com/GitMancilla719/MarwelMancilla" target="_blank" rel="noopener" >
                                             <img src={gitButton} alt="gitButton" width='35em'/>
@@ -35,19 +36,29 @@ const Works = () => {
                             </Box>
                         </Box>
 
-                        {/* <Box component={Card} elevation={2} className={classes.proj}>
+                        <Box component={Card} elevation={2} className={classes.proj}>
                             <Box className={classes.projImg}>
-                                <img src="" alt=""/>
+                                <img src={JOBSLogo} alt="JOBSLogo" width='300em'/>
                             </Box>
                             <Box className={classes.projDesc}>
-                                <Typography variant='h6'>Project Title 2</Typography>
-                                <Typography variant='body1'>ReactJS, Material UI</Typography>
+                                <Typography variant='h6'>Jobs by GitHub</Typography>
+                                <Typography variant='body2'>ReactJS, Material UI, Redux, GitHubJobs Api</Typography>
                                 <Box component={ButtonGroup} className={classes.bGroup} variant="text">
-                                    <Button className={classes.buttonG}><img src={viewButton} alt="viewButton" width='30em'/></Button>
-                                    <Button className={classes.buttonG}><img src={gitButton} alt="gitButton" width='35em'/></Button>
+                                    <Button className={classes.buttonG}>
+                                        <Link href="https://jobsbygithub.netlify.app/" target="_blank" rel="noopener" >
+                                            <img src={viewButton} alt="viewButton" width='30em'/>
+                                        </Link>
+                                    </Button>
+                                    <Button className={classes.buttonG}>
+                                        <Link href="https://github.com/GitMancilla719/MarwelMancilla" target="_blank" rel="noopener" >
+                                            <img src={gitButton} alt="gitButton" width='35em'/>
+                                        </Link>
+                                    </Button>
                                 </Box>
                             </Box>
-                        </Box> */}
+                        </Box>
+
+                        
 
                     </Box>
                 </Box>

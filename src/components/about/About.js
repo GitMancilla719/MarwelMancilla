@@ -9,11 +9,12 @@ import jsLogo from '../../assets/5.png'
 import cssLogo from '../../assets/6.png'
 import htmlLogo from '../../assets/7.png'
 import psLogo from '../../assets/8.png'
-
+import reduxLogo from '../../assets/9.png'
 
 const About = () => {
     const pics = [
         {tech : reactLogo, title : 'ReactJS'},
+        {tech : reduxLogo, title : 'Redux'},
         {tech : muiLogo, title : 'Material UI'},
         {tech : gitLogo, title : 'Git'},
         {tech : githubLogo, title : 'GitHub'},

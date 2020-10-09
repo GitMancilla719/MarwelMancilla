@@ -4,6 +4,7 @@ const WorksStyle = makeStyles( theme => ({
     container : {
         marginTop : '2em',
         padding : '7em 10em 20em 10em',
+        overflow : 'hidden',
         [theme.breakpoints.down('md')]: {         
             padding : '7em 5em 7em 5em',
         },
@@ -49,10 +50,12 @@ const WorksStyle = makeStyles( theme => ({
         width : '100%',
         height : '100%',
         color : '#FFFFFF',
-        padding : '0.7em'
+        padding : '0.7em',
+        wordWrap: 'break-word',
     },
     bGroup : {
         marginTop : '0.5em',
+        margin : 'auto'
     },
     buttonG : {
         color : '#FFFFFF'
